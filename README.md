@@ -34,7 +34,7 @@ Ubuntu with TS3 Server.
   
 	Just in case you dont wanna use the index.
 	
-    `sudo docker build https://github.com/devalx/docker-teamspeak3.git` 
+    `docker build https://github.com/luzifer-docker/docker-teamspeak3.git` 
   
   
   * Create container
@@ -46,12 +46,12 @@ Ubuntu with TS3 Server.
     {FOLDER} is an absolute path on the host to be mapped by the containers /teamspeak3 folder.
     Injected files are used from this location, see Summary above.
 
-    `sudo docker run --name TS3 -d -p 9987:9987/udp -v {FOLDER}:/teamspeak3 devalx/docker-teamspeak3` 
+    `docker run --name TS3 -d -p 9987:9987/udp -v {FOLDER}:/teamspeak3 luzifer/teamspeak3` 
     
   * Admin Secret
   
     After starting the container you probably want to get the Admin secret with:
-    `sudo docker logs TS3` 
+    `docker logs TS3` 
     
   * Upgrading
   
