@@ -22,6 +22,9 @@ RUN tar -C /opt -xzf /opt/teamspeak3-server_linux-amd64-3*.tar.gz
 ADD /scripts/ /opt/scripts/
 RUN chmod -R 774 /opt/scripts/
 
+# Cleanup
+RUN rm -f /opt/teamspeak3-server_linux-amd64-3*.tar.gz
+
 ENTRYPOINT ["/opt/scripts/docker-ts3.sh"]
 #CMD ["-w", "/teamspeak3/query_ip_whitelist.txt", "-b", "/teamspeak3/query_ip_blacklist.txt", "-o", "/teamspeak3/logs/", "-l", "/teamspeak3/"]
 
