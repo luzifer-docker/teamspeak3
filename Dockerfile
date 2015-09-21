@@ -17,10 +17,13 @@ VOLUME ["/teamspeak3"]
 
 # Download TS3 file and extract it into /opt.
 ADD ${TEAMSPEAK_URL} /opt/
-RUN cd /opt && tar -xzf /opt/teamspeak3-server_linux-amd64-3*.tar.gz
+RUN tar -C /opt -xzf /opt/teamspeak3-server_linux-amd64-3*.tar.gz
 
 ADD /scripts/ /opt/scripts/
 RUN chmod -R 774 /opt/scripts/
+
+# Cleanup
+RUN rm -f /opt/teamspeak3-server_linux-amd64-3*.tar.gz
 
 ENTRYPOINT ["/opt/scripts/docker-ts3.sh"]
 #CMD ["-w", "/teamspeak3/query_ip_whitelist.txt", "-b", "/teamspeak3/query_ip_blacklist.txt", "-o", "/teamspeak3/logs/", "-l", "/teamspeak3/"]
