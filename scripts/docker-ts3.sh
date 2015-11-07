@@ -2,12 +2,8 @@
 VOLUME=/teamspeak3
 
 echo " ----- docker-ts3 ------"
-echo "1. Check if ts3server.sqlitedb exists in host-mounted volume."
-if [ -f $VOLUME/ts3server.sqlitedb ]
-  then
-    echo "$VOLUME/ts3server.sqlitedb found. Creating Link between host-mounted db-file and ts3-folder."
-	ln -s $VOLUME/ts3server.sqlitedb /opt/teamspeak3-server_linux-amd64/ts3server.sqlitedb 
-fi
+echo "1. Linking host mounted database"
+ln -s $VOLUME/ts3server.sqlitedb /opt/teamspeak3-server_linux-amd64/ts3server.sqlitedb 
 
 echo "2. Link the files-folder into the host-mounted volume."
 mkdir -p /teamspeak3/files
