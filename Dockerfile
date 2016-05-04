@@ -1,15 +1,15 @@
 ###############################################
-# Ubuntu with added Teamspeak 3 Server. 
+# Ubuntu with added Teamspeak 3 Server.
 # Uses SQLite Database on default.
 ###############################################
 
 # Using latest Ubuntu image as base
-FROM ubuntu
+FROM ubuntu:16.04
 
 MAINTAINER Alex
 
 RUN apt-get update \
-        && apt-get install -y wget --no-install-recommends \
+        && apt-get install -y wget bzip2 --no-install-recommends \
         && rm -r /var/lib/apt/lists/*
 
 ## Set some variables for override.
@@ -35,6 +35,6 @@ ENTRYPOINT ["/opt/scripts/docker-ts3.sh"]
 # Expose the Standard TS3 port.
 EXPOSE 9987/udp
 # for files
-EXPOSE 30033 
+EXPOSE 30033
 # for ServerQuery
 EXPOSE 10011
