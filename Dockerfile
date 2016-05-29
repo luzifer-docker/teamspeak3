@@ -14,15 +14,15 @@ RUN apt-get update \
 
 ## Set some variables for override.
 # Download Link of TS3 Server
-ENV TEAMSPEAK_VERSION 3.0.12.3
-ENV TEAMSPEAK_SHA1 d74d60853e6fb41be74d2dc198e37ab776a164fa
+ENV TEAMSPEAK_VERSION 3.0.12.4
+ENV TEAMSPEAK_SHA256 6bb0e8c8974fa5739b90e1806687128342b3ab36510944f576942e67df7a1bd9
 
 # Inject a Volume for any TS3-Data that needs to be persisted or to be accessible from the host. (e.g. for Backups)
 VOLUME ["/teamspeak3"]
 
 # Download TS3 file and extract it into /opt.
 RUN wget -O teamspeak3-server_linux-amd64.tar.bz2 http://dl.4players.de/ts/releases/${TEAMSPEAK_VERSION}/teamspeak3-server_linux_amd64-${TEAMSPEAK_VERSION}.tar.bz2 \
-        && echo "${TEAMSPEAK_SHA1} *teamspeak3-server_linux-amd64.tar.bz2" | sha1sum -c - \
+        && echo "${TEAMSPEAK_SHA256} *teamspeak3-server_linux-amd64.tar.bz2" | sha256sum -c - \
         && tar -C /opt -xjf teamspeak3-server_linux-amd64.tar.bz2 \
         && rm teamspeak3-server_linux-amd64.tar.bz2
 
