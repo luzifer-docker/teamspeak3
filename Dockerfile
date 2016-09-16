@@ -14,8 +14,8 @@ RUN apt-get update \
 
 ## Set some variables for override.
 # Download Link of TS3 Server
-ENV TEAMSPEAK_VERSION 3.0.13.3
-ENV TEAMSPEAK_SHA256 e9f48c8a9bad75165e3a7c9d9f6b18639fd8aba63adaaa40aebd8114166273ae
+ENV TEAMSPEAK_VERSION 3.0.13.4
+ENV TEAMSPEAK_SHA256 cff353c3f395175ba251c787c5ca1cbb3d339be1ae1afe0cf10216a6e81ae5af
 
 # Inject a Volume for any TS3-Data that needs to be persisted or to be accessible from the host. (e.g. for Backups)
 VOLUME ["/teamspeak3"]
