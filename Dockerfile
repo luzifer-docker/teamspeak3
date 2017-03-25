@@ -31,9 +31,5 @@ RUN chmod -R 774 /opt/scripts/
 
 CMD ["/opt/scripts/docker-ts3.sh"]
 
-# Expose the Standard TS3 port.
-EXPOSE 9987/udp
-# for files
-EXPOSE 30033
-# for ServerQuery
-EXPOSE 10011
+# Expose the Standard TS3 port, for files, for serverquery
+EXPOSE 9987/udp 30033 10011
