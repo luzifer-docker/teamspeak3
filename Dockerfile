@@ -29,12 +29,7 @@ RUN wget -O teamspeak3-server_linux-amd64.tar.bz2 http://dl.4players.de/ts/relea
 ADD /scripts/ /opt/scripts/
 RUN chmod -R 774 /opt/scripts/
 
-ENTRYPOINT ["/opt/scripts/docker-ts3.sh"]
-#CMD ["-w", "/teamspeak3/query_ip_whitelist.txt", "-b", "/teamspeak3/query_ip_blacklist.txt", "-o", "/teamspeak3/logs/", "-l", "/teamspeak3/"]
+CMD ["/opt/scripts/docker-ts3.sh"]
 
-# Expose the Standard TS3 port.
-EXPOSE 9987/udp
-# for files
-EXPOSE 30033
-# for ServerQuery
-EXPOSE 10011
+# Expose the Standard TS3 port, for files, for serverquery
+EXPOSE 9987/udp 30033 10011
