@@ -3,6 +3,11 @@ set -euo pipefail
 
 VOLUME=/teamspeak3
 
+if [ -e "${VOLUME}/.ts3server_license_accepted" ]; then
+  echo "- Accepting license as you requested"
+  touch /opt/teamspeak3-server_linux_amd64/.ts3server_license_accepted
+fi
+
 echo "- Linking host mounted database..."
 
 ln -s $VOLUME/ts3server.sqlitedb /opt/teamspeak3-server_linux_amd64/ts3server.sqlitedb

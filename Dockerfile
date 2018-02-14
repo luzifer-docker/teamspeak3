@@ -2,12 +2,12 @@ FROM debian
 
 LABEL maintainer Knut Ahlers <knut@ahlers.me>
 
-ENV TEAMSPEAK_VERSION=3.0.13.8 \
-    TEAMSPEAK_SHA256=460c771bf58c9a49b4be2c677652f21896b98a021d7fff286e59679b3f987a59
+ENV TEAMSPEAK_VERSION=3.1.0 \
+    TEAMSPEAK_SHA256=9f18cff600b9ce82a26ab788633cd5004bbe8c86963507efd3704c085f50a391
 
 RUN set -ex \
  && apt-get update \
- && apt-get install -y curl bzip2 --no-install-recommends \
+ && apt-get install -y curl bzip2 ca-certificates --no-install-recommends \
  && curl -sSfLo teamspeak3-server_linux-amd64.tar.bz2 \
       http://dl.4players.de/ts/releases/${TEAMSPEAK_VERSION}/teamspeak3-server_linux_amd64-${TEAMSPEAK_VERSION}.tar.bz2 \
  && echo "${TEAMSPEAK_SHA256} *teamspeak3-server_linux-amd64.tar.bz2" | sha256sum -c - \
