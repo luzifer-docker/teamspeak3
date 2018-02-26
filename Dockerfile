@@ -2,8 +2,9 @@ FROM debian
 
 LABEL maintainer Knut Ahlers <knut@ahlers.me>
 
-ENV TEAMSPEAK_VERSION=3.1.0 \
-    TEAMSPEAK_SHA256=9f18cff600b9ce82a26ab788633cd5004bbe8c86963507efd3704c085f50a391
+# Get the SHA256 from https://www.teamspeak.com/en/downloads#server
+ENV TEAMSPEAK_VERSION=3.1.1 \
+    TEAMSPEAK_SHA256=c9403f7958e1bf1c5e5cf083641b1e02b06800158df543e09d9259c69181e873
 
 RUN set -ex \
  && apt-get update \
