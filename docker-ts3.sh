@@ -10,7 +10,9 @@ fi
 
 echo "- Linking host mounted database..."
 
-ln -s $VOLUME/ts3server.sqlitedb /opt/teamspeak3-server_linux_amd64/ts3server.sqlitedb
+if ! [ -L /opt/teamspeak3-server_linux_amd64/ts3server.sqlitedb ]; then
+  ln -s $VOLUME/ts3server.sqlitedb /opt/teamspeak3-server_linux_amd64/ts3server.sqlitedb
+fi
 
 echo "- Link the files-folder into the host-mounted volume..."
 
