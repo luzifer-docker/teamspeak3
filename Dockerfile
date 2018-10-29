@@ -6,8 +6,8 @@ LABEL maintainer Knut Ahlers <knut@ahlers.me>
 ENV TEAMSPEAK_VERSION=3.5.0 \
     TEAMSPEAK_SHA256=9bd56e115afea19351a6238a670dc93e365fe88f8a6c28b5b542ef6ae2ca677e
 
-RUN set -ex \
- && apt-get update \
+SHELL ["/bin/bash", "-exo", "pipefail",  "-c"]
+RUN apt-get update \
  && apt-get install -y curl bzip2 ca-certificates --no-install-recommends \
  && curl -sSfLo teamspeak3-server_linux-amd64.tar.bz2 \
       "http://dl.4players.de/ts/releases/${TEAMSPEAK_VERSION}/teamspeak3-server_linux_amd64-${TEAMSPEAK_VERSION}.tar.bz2" \
