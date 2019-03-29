@@ -20,11 +20,14 @@ official-tests: build
 
 test: hadolint official-tests
 
-update: teamspeaki_version_update test
+update: teamspeak_version_update test tag
 
-teamspeaki_version_update:
+teamspeak_version_update:
 	docker run --rm -i \
 		-v "$(CURDIR):$(CURDIR)" \
 		-w "$(CURDIR)" \
 		python:3-alpine \
 		sh -c "pip install -r patcher/requirements.txt && python3 patcher/index.py"
+
+tag:
+	bash ./patcher/tag.sh
