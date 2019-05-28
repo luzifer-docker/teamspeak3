@@ -3,14 +3,14 @@ FROM debian:stretch
 LABEL maintainer Knut Ahlers <knut@ahlers.me>
 
 # Get the SHA256 from https://www.teamspeak.com/en/downloads#server
-ENV TEAMSPEAK_VERSION=3.7.1 \
-    TEAMSPEAK_SHA256=6787d4c9fd6f72d1386872a61f38f932a8ee745046b1497168286ffd0311c0f0
+ENV TEAMSPEAK_VERSION=3.8.0 \
+    TEAMSPEAK_SHA256=6122ec5949cf53d91b7b8f76c5e7ea9921fd1ec07dce3cf715d8587e31c6f5af
 
 SHELL ["/bin/bash", "-exo", "pipefail",  "-c"]
 RUN apt-get update \
  && apt-get install -y curl bzip2 ca-certificates --no-install-recommends \
  && curl -sSfLo teamspeak3-server_linux-amd64.tar.bz2 \
-      "http://dl.4players.de/ts/releases/${TEAMSPEAK_VERSION}/teamspeak3-server_linux_amd64-${TEAMSPEAK_VERSION}.tar.bz2" \
+      "https://files.teamspeak-services.com/releases/server/${TEAMSPEAK_VERSION}/teamspeak3-server_linux_amd64-${TEAMSPEAK_VERSION}.tar.bz2" \
  && echo "${TEAMSPEAK_SHA256} *teamspeak3-server_linux-amd64.tar.bz2" | sha256sum -c - \
  && tar -C /opt -xjf teamspeak3-server_linux-amd64.tar.bz2 \
  && rm teamspeak3-server_linux-amd64.tar.bz2 \
