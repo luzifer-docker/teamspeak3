@@ -3,8 +3,8 @@ FROM debian:stretch
 LABEL maintainer Knut Ahlers <knut@ahlers.me>
 
 # Get the SHA256 from https://www.teamspeak.com/en/downloads#server
-ENV TEAMSPEAK_VERSION=3.13.1 \
-    TEAMSPEAK_SHA256=9e65236284a8cd436371e7cef24dc52433a90ca4c0defff8f470e9573397e71e
+ENV TEAMSPEAK_VERSION=3.13.2 \
+    TEAMSPEAK_SHA256=ffb6c8cc222228eaaed79930ebd39fbf2f8a6d557d1a67d7eafc5e7e8c4931d1
 
 SHELL ["/bin/bash", "-exo", "pipefail",  "-c"]
 RUN apt-get update \
