@@ -20,7 +20,7 @@ official-tests: build
 
 test: hadolint official-tests
 
-update: teamspeak_version_update test tag
+update: teamspeak_version_update test
 
 teamspeak_version_update:
 	docker run --rm -i \
