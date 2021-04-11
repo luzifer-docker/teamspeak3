@@ -34,7 +34,7 @@ def latest_version():
     fd = page.body.find(filter_file)
 
     version = fd.find('span', 'version').text.strip()
-    checksum = fd.find('p', 'checksum').text.split(' ')[1]
+    checksum = fd.find('pre', 'checksum').text.split(' ')[1]
 
     return (version, checksum)
 
