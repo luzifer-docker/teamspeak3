@@ -18,4 +18,4 @@ git diff --exit-code && exit 0
 echo "Updating repository..."
 make tag
 
-git push -q https://${GH_USER}:${GH_TOKEN}@github.com/luzifer-docker/vault.git master --tags
+git push -q https://${GH_USER}:${GH_TOKEN}@github.com/luzifer-docker/teamspeak3.git master --tags
