@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:bullseye
 
 LABEL maintainer Knut Ahlers <knut@ahlers.me>
 
