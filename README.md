@@ -52,6 +52,9 @@ Putting everything together this is how you will start your server:
 # Optionally create license accept file
 $ touch {FOLDER}/.ts3server_license_accepted
 
+# Ensure user 1000 can work with the mounted folder
+$ chown -R 1000:1000 {FOLDER}
+
 # Start container
 $ docker run --name TS3 -d -e TS3SERVER_LICENSE=accept -p 9987:9987/udp -v {FOLDER}:/teamspeak3 luzifer/teamspeak3
 ```
