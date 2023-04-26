@@ -7,13 +7,20 @@ ENV TEAMSPEAK_VERSION=3.13.7 \
     TEAMSPEAK_SHA256=775a5731a9809801e4c8f9066cd9bc562a1b368553139c1249f2a0740d50041e
 
 RUN apt-get update \
- && apt-get install -y curl bzip2 ca-certificates dumb-init --no-install-recommends \
+ && apt-get install --no-install-recommends -y \
+      bzip2 \
+      ca-certificates \
+      curl \
+      dumb-init \
  && curl -sSfLo teamspeak3-server_linux-amd64.tar.bz2 \
-    "https://files.teamspeak-services.com/releases/server/${TEAMSPEAK_VERSION}/teamspeak3-server_linux_amd64-${TEAMSPEAK_VERSION}.tar.bz2" \
+      "https://files.teamspeak-services.com/releases/server/${TEAMSPEAK_VERSION}/teamspeak3-server_linux_amd64-${TEAMSPEAK_VERSION}.tar.bz2" \
  && echo "${TEAMSPEAK_SHA256} *teamspeak3-server_linux-amd64.tar.bz2" | sha256sum -c - \
  && tar -C /opt -xjf teamspeak3-server_linux-amd64.tar.bz2 \
  && rm teamspeak3-server_linux-amd64.tar.bz2 \
- && apt-get purge -y curl bzip2 && apt-get autoremove -y \
+ && apt-get purge -y \
+      bzip2 \
+      curl \
+ && apt-get autoremove -y \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* \
  && groupadd -g 1000 teamspeak \
