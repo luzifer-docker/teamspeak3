@@ -6,6 +6,8 @@ LABEL maintainer Knut Ahlers <knut@ahlers.me>
 ENV TEAMSPEAK_VERSION=3.13.7 \
     TEAMSPEAK_SHA256=775a5731a9809801e4c8f9066cd9bc562a1b368553139c1249f2a0740d50041e
 
+SHELL ["/bin/bash", "-o", "pipefail", "-exc"]
+
 RUN apt-get update \
  && apt-get install --no-install-recommends -y \
       bzip2 \
