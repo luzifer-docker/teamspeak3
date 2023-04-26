@@ -10,8 +10,7 @@ This image contains a Teamspeak 3 server based on Debian Linux.
   - `files`
   - `licensekey.dat` (Maybe, don't have one)
   - `logs`
-  - `query_ip_blacklist.txt`
-  - `query_ip_whitelist.txt`
+  - `query_ip_whitelist.txt` (for backwards compatibility the old name is still used)
   - `ts3server.ini`
   - `.ts3server_license_accepted` (Accept license - see "Create container" below)
   - `ts3server.sqlitedb`

@@ -29,7 +29,7 @@ if [ -f "${VOLUME}/ts3server.ini" ]; then
   log "  '${VOLUME}/ts3server.ini' found. Using as config file."
   log "  HINT: If this ini was transfered from another ts3-install you may want"
   log "  to make sure the following settings are active for the usage of host-mounted volume:"
-  log "  - query_ip_whitelist='${VOLUME}/query_ip_whitelist.txt'"
+  log "  - query_ip_allowlist='${VOLUME}/query_ip_whitelist.txt'"
   log "  - logpath='${VOLUME}/logs/'"
   log "  - licensepath='${VOLUME}/'"
   log "  - inifile='${VOLUME}/ts3server.ini'"
